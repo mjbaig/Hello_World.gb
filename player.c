@@ -23,12 +23,12 @@ void player_update() {
     set_sprite_tile(0,0);
 
     int flip_toggle = get_sprite_prop(1) == S_FLIPX 
-        ? 0x00 : 0x20;
+        ? 0x00 : S_FLIPX;
 
     set_sprite_prop(1, S_FLIPX & flip_toggle);
     set_sprite_prop(0, S_FLIPX & flip_toggle);
 
-    if (flip_toggle == 0x20) {
+    if (flip_toggle == S_FLIPX) {
         move_sprite(0, 75 + 8, 75);
         move_sprite(1, 75, 75);
     } else {
