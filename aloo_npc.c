@@ -15,20 +15,20 @@ void aloo_npc_update() {
 
 void aloo_npc_walk_down() {
 
-    if (step_toggle == 1){ 
+    if (aloo_npc_step_toggle == 1){ 
         set_sprite_tile(2, 24);
         move_sprite(2, 60, 72);
 
         set_sprite_tile(3, 26);
         move_sprite(3, 60 + 8, 72);
-        step_toggle = 1;
+        aloo_npc_step_toggle = 0;
     } else {
         set_sprite_tile(2, 28);
         move_sprite(2, 60, 72);
 
         set_sprite_tile(3, 30);
         move_sprite(3, 60 + 8, 72);
-        step_toggle = 0;
+        aloo_npc_step_toggle = 1;
     }
 }
 

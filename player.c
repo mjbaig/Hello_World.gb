@@ -4,7 +4,7 @@
 
 short is_flipped = 0;
 
-int step_toggle = 0x0U;
+int player_step_toggle = 0x0U;
 
 void player_step_down();
 
@@ -18,10 +18,10 @@ void player_update() {
 
 void player_step_down() {
 
-    if (step_toggle == 1){
+    if (player_step_toggle == 1){
         set_sprite_tile(1,2);
         set_sprite_tile(0,0);
-        step_toggle = 0;
+        player_step_toggle = 0;
     } else  {
 
         set_sprite_tile(1, 6);
@@ -40,7 +40,7 @@ void player_step_down() {
             move_sprite(0, 80, 72);
             move_sprite(1, 80 + 8, 72);        
         }
-        step_toggle = 1;
+        player_step_toggle = 1;
     }
     
 }
