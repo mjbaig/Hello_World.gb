@@ -6,17 +6,20 @@ short is_flipped = 0;
 
 int player_step_toggle = 0x0U;
 
-void player_step_down();
+void player_step_down(UINT16 position_x, UINT16 position_y);
 
-void player_setup() {
-
+void player_setup(UINT16 position_x, UINT16 position_y) {
+    set_sprite_tile(1,2);
+    set_sprite_tile(0,0);
+    move_sprite(0, position_x, position_y);
+    move_sprite(1, position_x + 8, position_y); 
 }
 
-void player_update() {
-    player_step_down();    
+void player_update(UINT16 position_x, UINT16 position_y) {
+    player_step_down(position_x, position_y);    
 }
 
-void player_step_down() {
+void player_step_down(UINT16 position_x, UINT16 position_y) {
 
     if (player_step_toggle == 1){
         set_sprite_tile(1,2);
@@ -34,11 +37,11 @@ void player_step_down() {
         set_sprite_prop(0, S_FLIPX & flip_toggle);
 
         if (flip_toggle == S_FLIPX) {
-            move_sprite(0, 80 + 8, 72);
-            move_sprite(1, 80, 72);
+            move_sprite(0, position_x + 8, position_y);
+            move_sprite(1, position_x, position_y);
         } else {
-            move_sprite(0, 80, 72);
-            move_sprite(1, 80 + 8, 72);        
+            move_sprite(0, position_x, position_y);
+            move_sprite(1, position_x + 8, position_y);        
         }
         player_step_toggle = 1;
     }

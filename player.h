@@ -4,7 +4,7 @@
 
     #include "player.c"
     
-    void player_update();
-    void player_setup();
+    void player_update(UINT16 position_x, UINT16 position_y);
+    void player_setup(UINT16 position_x, UINT16 position_y);
 
 #endif
